@@ -1,0 +1,14 @@
+use jacana;
+
+fn main() {
+    let events = [0, 6];
+    let trials = [2, 6];
+    let weights = [1, 1];
+    let result = jacana_standardize(events, trials, weights);
+    if len(result) == 0 { println!("invalid"); return; }
+    let mut i = 0;
+    while i < len(result) {
+        println!(at(result, i));
+        i += 1;
+    }
+}

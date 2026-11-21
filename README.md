@@ -1,10 +1,14 @@
-<img src="assets/logo.png" width="112" height="112" alt="Jacana logo">
+<img src="assets/logo.png" width="112" height="112" alt="A chestnut jacana with a red forehead spreads its toes over a lily pad.">
 
 # Jacana
 
 Compare a crude event rate with a directly standardized rate. This Blyx workflow framework is part of the probability and causal analysis collection.
 
 A change in the mix of observed groups can move the pooled rate. Recalculate rates against fixed reference weights before comparing populations. [NCI SEER, direct age adjustment](https://seer.cancer.gov/seerstat/tutorials/aarates/definition.html)
+
+## Editor extension
+
+Install **RahulChaube.blyx-jacana** to run the worked example and use the framework’s function completions in a Blyx file. Open an empty `.blyx` file, enter `blyx-jacana-demo`, then choose **Blyx: Run File**. [Editor downloads](https://www.blyx-lang.space/packages/jacana#editor) · [Download the extension](https://github.com/Rahulchaube1/blyxxxx/releases/download/framework-editors-v0.1.0/blyx-jacana-0.1.0.vsix) · [Starter with framework source](https://github.com/Rahulchaube1/blyxxxx/releases/download/framework-editors-v0.1.0/blyx-jacana-starter-0.1.0.zip)
 
 ## Install and run
 
@@ -82,7 +86,7 @@ This release includes identical copies of both library modules so a tagged clone
 
 ## Verification and contributions
 
-The regression suite in [tests.blyx](tests.blyx) checks the example, boundary cases and invalid inputs. Include a short reproducer and your compiler version in [an issue](https://github.com/Rahulchaube1/blyx-jacana/issues). The source is dual-licensed under [MIT](LICENSE-MIT) or [Apache-2.0](LICENSE-APACHE). The package artwork uses [Lucide icons](https://lucide.dev/license); see [artwork notices](assets/NOTICE.txt).
+The regression suite in [tests.blyx](tests.blyx) checks the example, boundary cases and invalid inputs. Include a short reproducer and your compiler version in [an issue](https://github.com/Rahulchaube1/blyx-jacana/issues). The source is dual-licensed under [MIT](LICENSE-MIT) or [Apache-2.0](LICENSE-APACHE). The [artwork notice](assets/NOTICE.txt) records credits for earlier editions.
 
 ## Connect with Rahul Chaube
 
