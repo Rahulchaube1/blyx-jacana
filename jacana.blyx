@@ -1,0 +1,58 @@
+use stratamean;
+use stdweight;
+
+fn jacana_finite(values: vector) -> bool {
+    let mut i = 0;
+    while i < len(values) {
+        let value = at(values, i);
+        if !(value - value == 0.0) {
+            return false;
+        }
+        i += 1;
+    }
+    true
+}
+
+fn jacana_magnitudes(values: vector) -> bool {
+    let mut i = 0;
+    while i < len(values) {
+        let value = at(values, i);
+        if !(value >= 0.0 && value - value == 0.0) {
+            return false;
+        }
+        i += 1;
+    }
+    true
+}
+
+fn jacana_counts(values: vector) -> bool {
+    let mut i = 0;
+    while i < len(values) {
+        let value = at(values, i);
+        if !(value >= 0.0 && value <= 9007199254740991.0 && value % 1.0 == 0.0) {
+            return false;
+        }
+        i += 1;
+    }
+    true
+}
+
+fn jacana_compute(events: vector, trials: vector, weights: vector) -> vector {
+    let pooled = stratamean_pooled(events, trials);
+    let std = stdweight_direct(events, trials, weights);
+    if len(pooled) == 0 || len(std) == 0 {
+        return [];
+    }
+    [at(pooled, 2), at(std, 0), at(std, 0) - at(pooled, 2), at(pooled, 1)]
+}
+
+// Compare a crude event rate with a directly standardized rate.
+// Returns [crude rate, standardized rate, standardized minus crude, total observations]. Each reported stratum needs observations for the crude comparison. Causal interpretation depends on study design.
+pub fn jacana_standardize(events: vector, trials: vector, weights: vector) -> vector {
+    if !jacana_counts(events) { return []; }
+    if !jacana_counts(trials) { return []; }
+    if !jacana_magnitudes(weights) { return []; }
+    let result = jacana_compute(events, trials, weights);
+    if !jacana_finite(result) { return []; }
+    result
+}
